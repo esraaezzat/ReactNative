@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { StyleSheet, View, ScrollView, FlatList, Text, Button } from 'react-native';
 import GoalItem from './components/GoalItem';
 import GoalInput from './components/GoalInput';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
@@ -23,9 +24,10 @@ export default function App() {
     setmodalIsVisible(false);
   }
   return (
-   
+   <>
+    <StatusBar style='light'/>
     <View style={styles.container}>
-      <Button title='Add NEw Goal' color='#5e0acc' onPress={startAddGoalHandler}/>
+      <Button title='Add NEw Goal' color='#a065ec' onPress={startAddGoalHandler}/>
        <GoalInput isVisible={modalIsVisible} onAddGoal={addGoalHandler} onModalClose={endAddGoalHandler}/>
       <View style={styles.goalContainer}>
         <FlatList
@@ -60,6 +62,8 @@ export default function App() {
         </ScrollView> */}
       </View>
     </View>
+   </>
+    
   );
 }
 
